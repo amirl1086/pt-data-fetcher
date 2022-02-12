@@ -1,0 +1,35 @@
+{
+  "server": {
+    "port": 3030
+  },
+  "remotes": {
+    "knesset": {
+      "api": {
+        "getVotesHeaders": {
+          "path": "/WebSiteApi/knessetapi/Votes/GetVotesHeaders",
+          "method": "post",
+          "body": ["SearchType", "FromDate", "ToDate"]
+        },
+        "GetVoteDetails": {
+          "path": "/WebSiteApi/knessetapi/Votes/GetVoteDetails>",
+          "method": "get"
+        }
+      },
+      "filters": {
+        "dateRangeSearchType": "2"
+      },
+      "domain": {
+        "host": "www.knesset.gov.il",
+        "schema": "http"
+      },
+      "formats": {
+        "date": "YYYY-MM-DD"
+      }
+    }
+  },
+  "mongo": {
+    "host": "mongo",
+    "port": 27017,
+    "dbName": "knesset"
+  }
+}

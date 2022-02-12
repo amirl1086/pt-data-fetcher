@@ -1,0 +1,30 @@
+{
+  "name": "data-fetcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "SET NODE_ENV=development && nodemon server.js",
+    "prod": "export NODE_ENV=production && node server.js",
+    "test": "echo \"No test specified\" && exit 0",
+    "eslint": "./node_modules/.bin/eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirl1086/data-fetcher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amirl1086/data-fetcher/issues"
+  },
+  "homepage": "https://github.com/amirl1086/data-fetcher#readme",
+  "dependencies": {
+    "config": "^3.3.7",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0"
+  }
+}
