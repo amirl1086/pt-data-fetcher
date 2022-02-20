@@ -16,6 +16,31 @@ const buildQueryParams = (query) => {
   return { remoteFilters, dbFilters };
 }
 
+const syncBulk = (existingItems, newItems, keyId, mongoModel) => {
+  const existingMap = _.keyBy(existingItems, keyId);
+  const newMap = _.keyBy(newItems, keyId);
+  bulkResult = [];
+  
+  _.forEach(newItems, (newItem) => {
+    bulkResult.push(existingMap[newItem[keyId]] ? 
+      { updateOne: {
+          filter: { _id: existingMap[newItem[keyId]]._id.toString() },
+          update: {
+              $set: newMap[newItem[keyId]]
+          },
+          upsert: true
+      }}
+      : 
+      { insertOne: {
+          document: newMap[newItem[keyId]]
+      }}
+    );
+  });
+
+  mongoModel.bulkWrite(bulkResult);
+}
+
 module.exports = {
-  buildQueryParams
+  buildQueryParams,
+  syncBulk
 }

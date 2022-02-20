@@ -1,8 +1,13 @@
 {
   "server": {
-    "port": 3030
+    "port": 3030,
+    "host": "localhost"
   },
   "remotes": {
+    "mongodb": {
+      "host": "localhost",
+      "port": 27017
+    },
     "knesset": {
       "api": {
         "getVotesHeaders": {
@@ -26,10 +31,5 @@
         "date": "YYYY-MM-DD"
       }
     }
-  },
-  "mongo": {
-    "host": "mongo",
-    "port": 27017,
-    "dbName": "knesset"
   }
 }
